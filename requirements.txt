@@ -2,4 +2,4 @@ django
 pillow
 whitenoise
 gunicorn
-tinymce
+django-tinymce
