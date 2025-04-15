@@ -29,9 +29,9 @@
                       categories
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">All News</a></li>
-                      <li><a class="dropdown-item" href="#">India News</a></li>
-                      <li><a class="dropdown-item" href="#">Bollywood News</a></li>
+                      <li><a class="dropdown-item" href="{% url 'home' %}">All News</a></li>
+                      <li><a class="dropdown-item" href="{% url 'india' %}">India News</a></li>
+                      <li><a class="dropdown-item" href="{% url 'bolly' %}">Bollywood News</a></li>
                     </ul>
                   </li>
                   <li class="nav-item">
@@ -46,34 +46,24 @@
             </div>
           </nav>
 
-          <marquee  onmouseover="stop()" onmouseleave="start()" class="bg-danger p-3 text-light pt-2">Breaking News: 
-            <a href="
-            {% comment %} {% for top in topNews %} {% endcomment %}
-            {% for category in cetegories %}
-            
-            {% if category.title == 'India News' %}
-              {% url 'india' %}
-            {% elif category.title == 'Bollywood News' %}
-              {% url 'Bollywood' %}
-            {% if category.title == 'Health News' %}
-              {% url 'health' %}
-            {% if category.title == 'Sports News' %}
-              {% url 'Sports' %}           
-            
-          
-            " class="link-light fs-5 me-5">{{ top.title | truncatewords:8 }}, 
-            {% endif %}
-          {% endfor %}
-        </a>
-          </marquee>
+
+
+           <!-- marquee -->
+
+      <marquee onmouseover="stop()" onmouseleave="start()" class="bg-danger text-light pt-2 fs-5"> Breaking News: 
+        {% for top in topNews %}
+        <a href="" class="link-light  me-5">{{ top.title | truncatewords:8 }}, </a>
+
+        {% endfor %}
+
+      </marquee>
 
 
 
           <!--Categories-->
           <div class="row my-2" style="margin: 5% 0  15%" >
             
-
-            {% for category in cetegories %}
+            {% for category in categories %}
             <div class="col my-2">
               <div class="card" style="width: 18rem;" style="height: 10%;" >
                   <img src="/media/{{ category.image }}" class="card-img-top" style="width: 17.9rem; height: 170px;" alt="...">
@@ -91,7 +81,6 @@
 
     {% block news %}{% endblock news %}
 
-    
     <!--===============Footer Start=============-->
 
     <div class="container">
