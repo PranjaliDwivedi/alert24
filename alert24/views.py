@@ -33,6 +33,17 @@ def india(request):
         }
     return render(request,'categories/india.html', context)
 
+def bolly(request):
+    category = Categories.objects.all()
+    
+    bollyNews = News.objects.filter(category__title='Bollywood News').order_by('-id')
+    topNews = News.objects.all().order_by('-id')[:5]
+    context = {
+        'categories': category, 
+        'bollyNews': bollyNews,
+        'topNews': topNews
+        }
+    return render(request, 'categories/bollywood.html', context)    
 
 def detail(request, id):
     news = News.objects.get(pk = id )
