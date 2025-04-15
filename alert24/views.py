@@ -54,8 +54,5 @@ def detail(request, id):
         }
     return render(request,'detail.html', context)
 
-from. forms import Students 
-def StudentView(request):
-    sf = Students()
-    return render(request, 'form.html', {'fm':sf})
+
  
