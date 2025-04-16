@@ -9,7 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name = 'home'),
     path('india/', views.india, name = 'india'),
-    path('bolly/', views.bolly, name='bollywood'),
+    path('bolly/', views.bolly, name='bolly'),
     path('detail/<int:id>/', views.detail, name = 'detail'),
     path('search/', views.search, name = 'search'),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
