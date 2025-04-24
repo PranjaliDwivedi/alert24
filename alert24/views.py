@@ -28,7 +28,7 @@ def india(request):
     topNews = News.objects.all().order_by('-id')[:5]
     context = {
         'cetegories': category,
-        'allNews': allnews,
+        'indiaNews': indiaNews,
         'topNews': topNews
         }
     return render(request,'categories/india.html', context)
